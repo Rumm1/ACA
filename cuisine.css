@@ -1,0 +1,211 @@
+/* Общие стили */
+
+body {
+  margin: 0;
+  font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+  color: #333;
+  background-color: #fafafa;
+  line-height: 1.6;
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+.site-header {
+  position: relative;
+}
+
+.navbar {
+  background-color: #2c2c2c;
+  padding: 15px 30px;
+}
+
+.navbar ul {
+  list-style: none;
+  margin: 0;
+  padding: 0;
+  display: flex;
+  gap: 20px;
+}
+
+.navbar a {
+  color: #fff;
+  font-weight: bold;
+  transition: color 0.3s;
+}
+
+.navbar a:hover {
+  color: #e67e22;
+}
+
+/* Hero баннеры */
+
+.hero-banner {
+  height: 60vh;
+  background-size: cover;
+  background-position: center;
+  position: relative;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.hero-content {
+  background-color: rgba(0, 0, 0, 0.4);
+  padding: 20px 40px;
+  border-radius: 8px;
+  color: #fff;
+  text-align: center;
+}
+
+.hero-content h1 {
+  font-size: 3rem;
+  margin: 0 0 10px;
+}
+
+.hero-content p {
+  font-size: 1.4rem;
+  margin: 0 0 20px;
+}
+
+.btn-primary {
+  display: inline-block;
+  padding: 12px 25px;
+  background-color: #e67e22;
+  color: #fff;
+  font-size: 1.1rem;
+  border: none;
+  border-radius: 5px;
+  transition: background-color 0.3s;
+}
+
+.btn-primary:hover {
+  background-color: #cf711f;
+}
+
+/* Разметка main */
+
+.main-content {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 40px 20px;
+}
+
+.card-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  gap: 30px;
+}
+
+.card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  transition: transform 0.3s;
+}
+
+.card:hover {
+  transform: translateY(-5px);
+}
+
+.card img {
+  width: 100%;
+  height: 200px;
+  object-fit: cover;
+}
+
+.card-body {
+  padding: 20px;
+}
+
+.card-body h3 {
+  margin-top: 0;
+  color: #e67e22;
+}
+
+.card-body p {
+  margin: 10px 0;
+}
+
+.card-link {
+  display: inline-block;
+  margin-top: 10px;
+  color: #2c2c2c;
+  font-weight: bold;
+}
+
+.card-link:hover {
+  color: #e67e22;
+}
+
+/* Сетка блюд на странице кухни */
+
+.cuisine-content .dish-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+  gap: 40px;
+  margin-top: 30px;
+}
+
+.dish-card {
+  background-color: #fff;
+  border-radius: 8px;
+  overflow: hidden;
+  box-shadow: 0 4px 12px rgba(0,0,0,0.1);
+  text-align: center;
+  padding: 20px;
+}
+
+.dish-card h3 {
+  margin: 15px 0 10px;
+  color: #c0392b;
+}
+
+.dish-card p {
+  margin: 0 0 15px;
+  font-size: 1.05rem;
+}
+
+.dish-card ul {
+  list-style: disc inside;
+  padding-left: 20px;
+  margin: 0 auto;
+  max-width: 200px;
+  text-align: left;
+}
+
+/* Круглое изображение */
+
+.round-img img {
+  border-radius: 50%;
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  margin: 0 auto;
+}
+
+/* Блок‑цитата */
+
+.inspirational-quote {
+  margin: 60px auto;
+  font-style: italic;
+  text-align: center;
+  color: #7f8c8d;
+  max-width: 700px;
+  font-size: 1.3rem;
+  border-left: 4px solid #e67e22;
+  padding-left: 20px;
+}
+
+/* Футер */
+
+.site-footer {
+  background-color: #2c2c2c;
+  color: #fff;
+  text-align: center;
+  padding: 30px 0;
+  margin-top: 40px;
+}
