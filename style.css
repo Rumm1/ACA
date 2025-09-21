@@ -558,11 +558,7 @@ body {
     }
     
 }
-/* ================================
-   CONTACT PAGE STYLES (ACA Version)
-   ================================ */
 
-/* Hero Section */
 .aca-contact-hero {
     background: linear-gradient(rgba(60, 59, 110, 0.8), rgba(178, 34, 52, 0.8)), center/cover no-repeat;
     height: 400px;
