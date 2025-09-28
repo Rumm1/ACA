@@ -1,4 +1,3 @@
-
 * {
     margin: 0;
     padding: 0;
@@ -19,7 +18,9 @@ body {
     padding: 0 15px;
 }
 
-/* Header Styles */
+/* ===== FLEXBOX LAYOUTS ===== */
+
+/* Header Styles - FLEXBOX for Assignment 3 Task 1 */
 .aca-header {
     background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
     color: white;
@@ -84,43 +85,9 @@ body {
     margin-left: 20px;
 }
 
-/* Hero Section */
-.aca-hero {
-    background: linear-gradient(rgba(0, 0, 0, 0.6), rgba(0, 0, 0, 0.6)), center/cover no-repeat;
-    height: 500px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-}
+/* ===== GRID LAYOUTS ===== */
 
-.aca-hero-content h2 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-}
-
-.aca-hero-content p {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    max-width: 700px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-.aca-tagline {
-    font-style: italic;
-    font-size: 1.2rem;
-    color: #f0f0f0;
-    border-top: 1px solid rgba(255, 255, 255, 0.3);
-    padding-top: 20px;
-    margin-top: 20px;
-    max-width: 600px;
-    margin-left: auto;
-    margin-right: auto;
-}
-
-/* Categories Section */
+/* Categories Section - GRID for Assignment 3 Task 2 */
 .aca-categories {
     padding: 70px 0;
     background-color: #fff;
@@ -173,12 +140,18 @@ body {
 .aca-card-image {
     height: 200px;
     overflow: hidden;
-    background-color: #f0f0f0;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-weight: 500;
+    position: relative;
+}
+
+.aca-card-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s ease;
+}
+
+.aca-category-card:hover .aca-card-image img {
+    transform: scale(1.05);
 }
 
 .aca-card-content {
@@ -209,7 +182,7 @@ body {
     transform: translateX(5px);
 }
 
-/* About Section */
+/* About Section - GRID Layout */
 .aca-about {
     padding: 70px 0;
     background-color: #f5f7fa;
@@ -255,79 +228,189 @@ body {
 
 .aca-about-image {
     height: 350px;
-    background-color: #f0f0f0;
-    border-radius: 10px;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: #999;
-    font-weight: 500;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
 }
 
-/* Features Section */
-.aca-features {
+.aca-about-image img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+
+/* ===== GRID LAYOUT WITH AREAS - Assignment 3 Task 3 ===== */
+.aca-grid-layout {
+    display: grid;
+    grid-template-areas: 
+        "header header"
+        "sidebar main"
+        "footer footer";
+    grid-template-columns: 300px 1fr;
+    grid-template-rows: auto 1fr auto;
+    min-height: 100vh;
+    gap: 20px;
+    padding: 20px;
+    background-color: #f5f7fa;
+}
+
+.aca-grid-header {
+    grid-area: header;
+    background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+.aca-grid-sidebar {
+    grid-area: sidebar;
+    background: white;
+    padding: 30px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.aca-grid-main {
+    grid-area: main;
+    background: white;
+    padding: 40px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+}
+
+.aca-grid-footer {
+    grid-area: footer;
+    background: linear-gradient(135deg, #1a2a6c, #3C3B6E);
+    color: white;
+    padding: 30px;
+    border-radius: 10px;
+    text-align: center;
+}
+
+/* ===== IMAGE GALLERY - Assignment 3 Task 4 ===== */
+.aca-gallery {
     padding: 70px 0;
     background-color: #fff;
 }
 
-.aca-features-grid {
+.aca-gallery-grid {
     display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 40px;
-    margin-top: 50px;
+    grid-template-columns: repeat(3, 1fr);
+    grid-template-rows: repeat(3, 200px);
+    gap: 15px;
+    margin-top: 40px;
 }
 
-.aca-feature {
-    text-align: center;
-    padding: 30px;
-    border-radius: 10px;
-    transition: all 0.3s ease;
-    background: white;
-    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
+.aca-gallery-item {
+    position: relative;
+    overflow: hidden;
+    border-radius: 8px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
 }
 
-.aca-feature:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 10px 25px rgba(0, 0, 0, 0.15);
+.aca-gallery-item img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.3s ease;
 }
 
-.aca-feature-icon {
-    width: 70px;
-    height: 70px;
-    background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
+.aca-gallery-caption {
+    position: absolute;
+    bottom: -100%;
+    left: 0;
+    right: 0;
+    background: linear-gradient(transparent, rgba(60, 59, 110, 0.9));
     color: white;
-    border-radius: 50%;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    margin: 0 auto 20px;
-    font-size: 28px;
+    padding: 20px;
+    transition: bottom 0.3s ease;
 }
 
-.aca-feature h4 {
-    font-size: 1.4rem;
-    margin-bottom: 15px;
+.aca-gallery-item:hover .aca-gallery-caption {
+    bottom: 0;
+}
+
+.aca-gallery-item:hover img {
+    transform: scale(1.05);
+}
+
+/* Team Section */
+.aca-team-section {
+    background-color: #f5f7fa;
+    padding: 80px 0;
+}
+
+.aca-team-grid {
+    display: grid;
+    grid-template-columns: repeat(4, 1fr);
+    gap: 25px;
+    margin-top: 40px;
+}
+
+.aca-team-card {
+    background: white;
+    border-radius: 12px;
+    overflow: hidden;
+    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+    transition: all 0.3s ease;
+    text-align: center;
+    text-decoration: none;
+    color: inherit;
+    display: block;
+}
+
+.aca-team-card:hover {
+    transform: translateY(-10px);
+    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
+}
+
+.aca-team-image {
+    width: 120px;
+    height: 120px;
+    border-radius: 50%;
+    object-fit: cover;
+    border: 3px solid #3C3B6E;
+    margin: 25px auto 15px;
+    display: block;
+    transition: all 0.3s ease;
+}
+
+.aca-team-card:hover .aca-team-image {
+    transform: scale(1.1);
+    border-color: #B22234;
+}
+
+.aca-team-content {
+    padding: 0 20px 25px;
+}
+
+.aca-team-content h4 {
+    font-size: 1.3rem;
+    margin-bottom: 8px;
     color: #3C3B6E;
     font-family: 'Playfair Display', serif;
 }
 
-.aca-feature p {
-    color: #666;
-    line-height: 1.6;
-    margin-bottom: 15px;
-}
-
-.aca-team-member-link {
+.aca-team-role {
     color: #B22234;
     font-weight: 600;
-    text-decoration: none;
-    transition: all 0.3s ease;
-    display: inline-block;
+    margin-bottom: 12px;
+    font-size: 0.9rem;
 }
 
-.aca-team-member-link:hover {
-    color: #9e1c2d;
-    transform: translateX(5px);
+.aca-team-content p {
+    color: #666;
+    margin-bottom: 15px;
+    line-height: 1.5;
+    font-size: 0.9rem;
+}
+
+.aca-team-email {
+    color: #666;
+    font-size: 0.85rem;
+    margin-top: 15px;
+    word-break: break-word;
 }
 
 /* Footer */
@@ -367,30 +450,6 @@ body {
     line-height: 1.6;
     margin-bottom: 20px;
     color: #e0e0e0;
-}
-
-.aca-social {
-    display: flex;
-    gap: 15px;
-    margin-top: 20px;
-}
-
-.aca-social a {
-    display: inline-flex;
-    align-items: center;
-    justify-content: center;
-    width: 40px;
-    height: 40px;
-    background: rgba(255, 255, 255, 0.1);
-    color: white;
-    border-radius: 50%;
-    text-decoration: none;
-    transition: all 0.3s ease;
-}
-
-.aca-social a:hover {
-    background: #B22234;
-    transform: translateY(-5px);
 }
 
 .aca-team-members {
@@ -450,41 +509,101 @@ body {
     color: #aaa;
 }
 
-.aca-american-flag {
-    display: inline-block;
-    height: 15px;
-    width: 25px;
-    background: linear-gradient(
-        to bottom,
-        #B22234 0%, #B22234 40%,
-        white 40%, white 70%,
-        #B22234 70%, #B22234 100%
-    );
-    position: relative;
-    margin: 0 5px;
+/* ===== ID SELECTORS for Assignment 2 ===== */
+#main-content {
+    padding: 40px 0;
+    background-color: #f9f9f9;
 }
 
-.aca-american-flag:before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 35%;
-    height: 54%;
-    background: #3C3B6E;
-    border-bottom-right-radius: 3px;
-}
-
-.aca-american-flag:after {
-    content: '★';
-    position: absolute;
-    top: 2px;
-    left: 2px;
+#welcome-message {
+    text-align: center;
+    margin-bottom: 50px;
+    padding: 30px;
+    background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
     color: white;
-    font-size: 6px;
+    border-radius: 10px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.1);
+}
+
+#welcome-message h2 {
+    font-size: 2.5rem;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+#welcome-message p {
+    font-size: 1.2rem;
+    max-width: 800px;
+    margin: 0 auto;
+    line-height: 1.6;
+}
+
+#featured-categories {
+    margin: 60px 0;
+    padding: 40px 0;
+    background-color: white;
+    border-radius: 10px;
+}
+
+#cultural-highlights {
+    background: linear-gradient(135deg, #f5f7fa 0%, #e4e8f0 100%);
+    padding: 60px 0;
+    margin: 50px 0;
+    border-radius: 15px;
+}
+
+#cultural-highlights h3 {
+    text-align: center;
+    color: #3C3B6E;
+    margin-bottom: 40px;
+    font-family: 'Playfair Display', serif;
+    font-size: 2rem;
+}
+
+#site-footer {
+    border-top: 3px solid #B22234;
+    background: linear-gradient(135deg, #1a1a4e, #3C3B6E);
+}
+
+#contact-info {
+    background-color: rgba(255, 255, 255, 0.05);
+    padding: 20px;
+    border-radius: 8px;
+    margin-top: 20px;
+}
+
+#contact-info h4 {
+    color: #B22234;
+    margin-bottom: 15px;
+    font-family: 'Playfair Display', serif;
+}
+
+/* Team list in footer for Assignment 2 requirement */
+.aca-team-list {
+    margin-top: 20px;
+    padding-top: 20px;
+    border-top: 1px solid rgba(255, 255, 255, 0.1);
+}
+
+.aca-team-list h4 {
+    color: #B22234;
+    margin-bottom: 10px;
+    font-family: 'Playfair Display', serif;
 }
 
 /* Responsive Design */
+@media (max-width: 1200px) {
+    .aca-team-grid {
+        grid-template-columns: repeat(2, 1fr);
+        gap: 25px;
+    }
+    
+    .aca-gallery-grid {
+        grid-template-columns: repeat(2, 1fr);
+        grid-template-rows: repeat(5, 200px);
+    }
+}
+
 @media (max-width: 992px) {
     .aca-about-content {
         grid-template-columns: 1fr;
@@ -494,6 +613,16 @@ body {
     .aca-about-image {
         order: -1;
         height: 250px;
+    }
+    
+    .aca-grid-layout {
+        grid-template-areas: 
+            "header"
+            "sidebar"
+            "main"
+            "footer";
+        grid-template-columns: 1fr;
+        grid-template-rows: auto auto 1fr auto;
     }
 }
 
@@ -531,8 +660,13 @@ body {
         grid-template-columns: 1fr;
     }
     
-    .aca-features-grid {
+    .aca-team-grid {
         grid-template-columns: 1fr;
+    }
+    
+    .aca-gallery-grid {
+        grid-template-columns: 1fr;
+        grid-template-rows: repeat(9, 200px);
     }
     
     .aca-footer-content {
@@ -552,657 +686,4 @@ body {
         left: 50%;
         transform: translateX(-50%);
     }
-    
-    .aca-social {
-        justify-content: center;
-    }
-    
-}
-
-.aca-contact-hero {
-    background: linear-gradient(rgba(60, 59, 110, 0.8), rgba(178, 34, 52, 0.8)), center/cover no-repeat;
-    height: 400px;
-    display: flex;
-    align-items: center;
-    text-align: center;
-    color: white;
-    position: relative;
-}
-
-.aca-contact-hero::before {
-    content: '';
-    position: absolute;
-    top: 0;
-    left: 0;
-    width: 100%;
-    height: 100%;
-    background: rgba(0, 0, 0, 0.4);
-}
-
-.aca-contact-hero-content {
-    position: relative;
-    z-index: 1;
-    max-width: 800px;
-    margin: 0 auto;
-    padding: 20px;
-}
-
-.aca-contact-hero h1 {
-    font-size: 2.8rem;
-    margin-bottom: 20px;
-    font-family: 'Playfair Display', serif;
-    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
-}
-
-.aca-contact-hero p {
-    font-size: 1.3rem;
-    margin-bottom: 25px;
-    text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-}
-
-/* Main Content */
-.aca-contact-main {
-    padding: 70px 0;
-    background-color: #f9f9f9;
-}
-
-.aca-contact-container {
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-/* Team Section */
-.aca-contact-team {
-    margin-bottom: 70px;
-}
-
-.aca-contact-section-title {
-    text-align: center;
-    font-size: 2.2rem;
-    margin-bottom: 50px;
-    color: #3C3B6E;
-    position: relative;
-    padding-bottom: 15px;
-    font-family: 'Playfair Display', serif;
-}
-
-.aca-contact-section-title:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 50%;
-    transform: translateX(-50%);
-    width: 80px;
-    height: 4px;
-    background: linear-gradient(to right, #3C3B6E, #B22234);
-    border-radius: 2px;
-}
-
-.aca-contact-intro {
-    text-align: center;
-    font-size: 1.1rem;
-    color: #666;
-    margin-bottom: 40px;
-    max-width: 800px;
-    margin-left: auto;
-    margin-right: auto;
-    line-height: 1.6;
-}
-
-.aca-contact-team-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.aca-contact-team-member {
-    background: white;
-    border-radius: 12px;
-    padding: 30px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    transition: all 0.3s ease;
-    text-align: center;
-}
-
-.aca-contact-team-member:hover {
-    transform: translateY(-10px);
-    box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-}
-
-.aca-contact-member-name {
-    font-size: 1.5rem;
-    margin-bottom: 10px;
-    color: #3C3B6E;
-    font-family: 'Playfair Display', serif;
-}
-
-.aca-contact-member-role {
-    color: #B22234;
-    font-weight: 600;
-    margin-bottom: 15px;
-    font-size: 1rem;
-}
-
-.aca-contact-member-description {
-    color: #666;
-    margin-bottom: 20px;
-    line-height: 1.5;
-}
-
-.aca-contact-member-contact {
-    margin-top: 20px;
-}
-
-.aca-contact-info {
-    color: #3C3B6E;
-    font-weight: 500;
-    font-size: 0.9rem;
-}
-
-/* Contact Form Section */
-.aca-contact-form-section {
-    background: white;
-    padding: 60px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-    margin-bottom: 70px;
-}
-
-.aca-contact-form-description {
-    text-align: center;
-    color: #666;
-    margin-bottom: 40px;
-    font-size: 1.1rem;
-    line-height: 1.6;
-}
-
-.aca-contact-form {
-    max-width: 800px;
-    margin: 0 auto;
-}
-
-.aca-contact-form-row {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 25px;
-    margin-bottom: 25px;
-}
-
-.aca-contact-form-group {
-    margin-bottom: 25px;
-}
-
-.aca-contact-form-group label {
-    display: block;
-    margin-bottom: 8px;
-    font-weight: 600;
-    color: #3C3B6E;
-}
-
-.aca-contact-form-input,
-.aca-contact-form-select,
-.aca-contact-form-textarea {
-    width: 100%;
-    padding: 15px;
-    border: 2px solid #e0e0e0;
-    border-radius: 8px;
-    font-size: 1rem;
-    font-family: inherit;
-    transition: all 0.3s ease;
-    background-color: #f9f9f9;
-}
-
-.aca-contact-form-input:focus,
-.aca-contact-form-select:focus,
-.aca-contact-form-textarea:focus {
-    outline: none;
-    border-color: #3C3B6E;
-    box-shadow: 0 0 0 3px rgba(60, 59, 110, 0.1);
-    background-color: white;
-}
-
-.aca-contact-form-textarea {
-    resize: vertical;
-    min-height: 150px;
-}
-
-.aca-contact-checkbox-group {
-    display: flex;
-    align-items: center;
-    gap: 10px;
-}
-
-.aca-contact-form-checkbox {
-    width: auto;
-}
-
-.aca-contact-checkbox-label {
-    margin-bottom: 0;
-    font-size: 0.95rem;
-    color: #666;
-}
-
-.aca-contact-form-actions {
-    display: flex;
-    gap: 20px;
-    justify-content: center;
-    margin-top: 30px;
-}
-
-.aca-contact-submit-button,
-.aca-contact-reset-button {
-    padding: 15px 35px;
-    border: none;
-    border-radius: 30px;
-    font-size: 1rem;
-    font-weight: 600;
-    cursor: pointer;
-    transition: all 0.3s ease;
-}
-
-.aca-contact-submit-button {
-    background: #B22234;
-    color: white;
-}
-
-.aca-contact-submit-button:hover {
-    background: #9e1c2d;
-    transform: translateY(-3px);
-    box-shadow: 0 5px 15px rgba(178, 34, 52, 0.3);
-}
-
-.aca-contact-reset-button {
-    background: #f0f0f0;
-    color: #666;
-}
-
-.aca-contact-reset-button:hover {
-    background: #e0e0e0;
-    transform: translateY(-3px);
-}
-
-/* Location Section */
-.aca-contact-location-section {
-    margin-bottom: 70px;
-}
-
-.aca-contact-location-content {
-    display: grid;
-    grid-template-columns: 1fr 1fr;
-    gap: 40px;
-    margin-top: 40px;
-}
-
-.aca-contact-location-info {
-    background: white;
-    padding: 40px;
-    border-radius: 15px;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.aca-contact-location-info h3 {
-    font-size: 1.5rem;
-    margin-bottom: 25px;
-    color: #3C3B6E;
-    font-family: 'Playfair Display', serif;
-}
-
-.aca-contact-location-address {
-    margin-bottom: 30px;
-}
-
-.aca-contact-location-address p {
-    margin-bottom: 8px;
-    color: #666;
-}
-
-.aca-contact-contact-details {
-    margin-bottom: 30px;
-}
-
-.aca-contact-contact-details h4 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #3C3B6E;
-}
-
-.aca-contact-contact-list {
-    list-style: none;
-}
-
-.aca-contact-contact-list li {
-    margin-bottom: 10px;
-    color: #666;
-}
-
-.aca-contact-contact-list a {
-    color: #3C3B6E;
-    text-decoration: none;
-    transition: color 0.3s ease;
-}
-
-.aca-contact-contact-list a:hover {
-    color: #B22234;
-}
-
-.aca-contact-office-hours {
-    margin-bottom: 20px;
-}
-
-.aca-contact-office-hours h4 {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #3C3B6E;
-}
-
-.aca-contact-office-hours p {
-    margin-bottom: 8px;
-    color: #666;
-}
-
-.aca-contact-hours-note {
-    font-size: 0.9rem;
-    color: #999;
-    font-style: italic;
-}
-
-.aca-contact-map-container {
-    background: white;
-    border-radius: 15px;
-    overflow: hidden;
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-    height: 100%;
-}
-
-.aca-contact-location-map {
-    width: 100%;
-    height: 100%;
-    min-height: 400px;
-    border: none;
-}
-
-/* FAQ Section */
-.aca-contact-faq-section {
-    background: white;
-    padding: 60px;
-    border-radius: 15px;
-    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
-}
-
-.aca-contact-faq-grid {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-    gap: 30px;
-    margin-top: 40px;
-}
-
-.aca-contact-faq-item {
-    background: #f9f9f9;
-    padding: 25px;
-    border-radius: 10px;
-    border-left: 4px solid #3C3B6E;
-    transition: all 0.3s ease;
-}
-
-.aca-contact-faq-item:hover {
-    transform: translateY(-5px);
-    box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-}
-
-.aca-contact-faq-question {
-    font-size: 1.2rem;
-    margin-bottom: 15px;
-    color: #3C3B6E;
-    font-weight: 600;
-}
-
-.aca-contact-faq-answer {
-    color: #666;
-    line-height: 1.6;
-}
-
-/* Footer */
-.aca-contact-footer {
-    background: linear-gradient(135deg, #1a2a6c, #3C3B6E);
-    color: white;
-    padding: 60px 0 20px;
-}
-
-.aca-contact-footer-content {
-    display: grid;
-    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-    gap: 40px;
-    margin-bottom: 40px;
-}
-
-.aca-contact-footer-section h3 {
-    font-size: 1.4rem;
-    margin-bottom: 20px;
-    position: relative;
-    padding-bottom: 10px;
-    font-family: 'Playfair Display', serif;
-}
-
-.aca-contact-footer-section h3:after {
-    content: '';
-    position: absolute;
-    bottom: 0;
-    left: 0;
-    width: 50px;
-    height: 3px;
-    background: #B22234;
-    border-radius: 2px;
-}
-
-.aca-contact-footer-section p {
-    line-height: 1.6;
-    margin-bottom: 20px;
-    color: #e0e0e0;
-}
-
-.aca-contact-team-members {
-    display: grid;
-    grid-template-columns: repeat(2, 1fr);
-    gap: 10px;
-}
-
-.aca-contact-team-member-link {
-    background: rgba(255, 255, 255, 0.1);
-    padding: 12px 15px;
-    border-radius: 5px;
-    text-align: center;
-    transition: all 0.3s ease;
-    color: white;
-    text-decoration: none;
-}
-
-.aca-contact-team-member-link:hover {
-    background: rgba(255, 255, 255, 0.2);
-    transform: translateY(-3px);
-}
-
-.aca-contact-footer-links {
-    list-style: none;
-}
-
-.aca-contact-footer-links li {
-    margin-bottom: 12px;
-}
-
-.aca-contact-footer-links li a {
-    color: #e0e0e0;
-    text-decoration: none;
-    display: flex;
-    align-items: center;
-    transition: all 0.3s ease;
-}
-
-.aca-contact-footer-links li a i {
-    margin-right: 10px;
-    color: #B22234;
-    font-size: 0.9rem;
-}
-
-.aca-contact-footer-links li a:hover {
-    color: #ffffff;
-    transform: translateX(5px);
-}
-
-.aca-contact-footer-bottom {
-    text-align: center;
-    padding-top: 30px;
-    margin-top: 40px;
-    border-top: 1px solid rgba(255, 255, 255, 0.1);
-    font-size: 0.9rem;
-    color: #aaa;
-}
-
-/* Responsive Design */
-@media (max-width: 992px) {
-    .aca-contact-location-content {
-        grid-template-columns: 1fr;
-    }
-    
-    .aca-contact-map-container {
-        height: 400px;
-    }
-}
-
-@media (max-width: 768px) {
-    .aca-contact-form-row {
-        grid-template-columns: 1fr;
-    }
-    
-    .aca-contact-form-actions {
-        flex-direction: column;
-        align-items: center;
-    }
-    
-    .aca-contact-submit-button,
-    .aca-contact-reset-button {
-        width: 200px;
-    }
-    
-    .aca-contact-form-section,
-    .aca-contact-faq-section {
-        padding: 40px 25px;
-    }
-    
-    .aca-contact-hero h1 {
-        font-size: 2.2rem;
-    }
-    
-    .aca-contact-hero p {
-        font-size: 1.1rem;
-    }
-    
-    .aca-contact-team-grid {
-        grid-template-columns: 1fr;
-    }
-    
-    .aca-contact-footer-content {
-        grid-template-columns: 1fr;
-        gap: 30px;
-    }
-    
-    .aca-contact-team-members {
-        grid-template-columns: repeat(2, 1fr);
-    }
-    
-    .aca-contact-footer-section {
-        text-align: center;
-    }
-    
-    .aca-contact-footer-section h3:after {
-        left: 50%;
-        transform: translateX(-50%);
-    }
-}
-
-/* Navigation Styles for Contact Page */
-.aca-contact-nav {
-    background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
-    color: white;
-    padding: 15px 0;
-    box-shadow: 0 2px 15px rgba(0, 0, 0, 0.1);
-    position: sticky;
-    top: 0;
-    z-index: 100;
-}
-
-.aca-contact-nav-content {
-    display: flex;
-    justify-content: space-between;
-    align-items: center;
-    width: 90%;
-    max-width: 1200px;
-    margin: 0 auto;
-    padding: 0 15px;
-}
-
-.aca-contact-nav-logo {
-    display: flex;
-    align-items: center;
-}
-
-.aca-contact-nav-logo-img {
-    width: 50px;
-    height: 50px;
-    border-radius: 12px;
-    background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    color: white;
-    font-weight: bold;
-    font-size: 18px;
-    margin-right: 12px;
-    border: 2px solid #B22234;
-    object-fit: cover;
-}
-
-.aca-contact-nav-logo-text h1 {
-    font-size: 22px;
-    margin: 0;
-}
-
-.aca-contact-nav-logo-text p {
-    font-size: 12px;
-    margin: 0;
-    opacity: 0.8;
-}
-
-.aca-contact-nav-menu {
-    display: flex;
-    list-style: none;
-}
-
-.aca-contact-nav-menu li {
-    margin-left: 20px;
-}
-
-.aca-contact-nav-menu a {
-    color: white;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 16px;
-    transition: all 0.3s ease;
-    padding: 8px 12px;
-    border-radius: 4px;
-}
-
-.aca-contact-nav-menu a:hover,
-.aca-contact-nav-menu a.aca-contact-active {
-    background-color: rgba(255, 255, 255, 0.15);
-}
-
-.aca-contact-university-logo {
-    height: 40px;
-    margin-left: 20px;
-    border-radius: 12px;
-    border: 2px solid #3C3B6E;
-    object-fit: cover;
 }
