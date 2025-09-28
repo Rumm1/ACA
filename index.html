@@ -4,22 +4,27 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>American Cultural Association</title>
-    <link rel="stylesheet" href="aca-style.css">
+    <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;700&family=Playfair+Display:wght@400;700&display=swap" rel="stylesheet">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
     <style>
-        /* Hero Section with background like contact.html */
+        /* Improved Hero Section Styles */
         .aca-hero {
-            background: linear-gradient(rgba(60, 59, 110, 0.8), rgba(178, 34, 52, 0.8)), url('background.jpg') center/cover no-repeat;
-            height: 520px;
+            background: linear-gradient(135deg, 
+                rgba(60, 59, 110, 0.85) 0%, 
+                rgba(178, 34, 52, 0.8) 50%,
+                rgba(60, 59, 110, 0.9) 100%), 
+                url('background.jpg') center/cover no-repeat;
+            height: 100vh;
+            min-height: 700px;
             display: flex;
             align-items: center;
             text-align: center;
             color: white;
             position: relative;
+            overflow: hidden;
         }
-        
+
         .aca-hero::before {
             content: '';
             position: absolute;
@@ -27,403 +32,277 @@
             left: 0;
             width: 100%;
             height: 100%;
-            background: rgba(0, 0, 0, 0.4);
+            background: url('data:image/svg+xml,<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 100 100" preserveAspectRatio="none"><path d="M0,0 L100,0 L100,100 Z" fill="rgba(255,255,255,0.05)"/></svg>');
+            background-size: cover;
         }
-        
+
         .aca-hero-content {
             position: relative;
-            z-index: 1;
-            max-width: 1000px;
+            z-index: 2;
+            max-width: 1200px;
             margin: 0 auto;
-            padding: 30px;
-            animation: fadeInUp 1s ease-out;
+            padding: 40px 20px;
+            animation: heroContentAppear 1.2s ease-out;
         }
-        
-        .aca-hero-content h2 {
-            font-size: 2.8rem;
-            margin-bottom: 20px;
-            font-family: 'Playfair Display', serif;
-            text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+
+        .aca-hero-badge {
+            display: inline-block;
+            background: linear-gradient(135deg, #B22234, #9e1c2d);
+            color: white;
+            padding: 8px 20px;
+            border-radius: 30px;
+            font-size: 0.9rem;
+            font-weight: 600;
+            letter-spacing: 1px;
+            margin-bottom: 30px;
+            text-transform: uppercase;
+            animation: badgePulse 2s infinite;
         }
-        
-        .aca-hero-content p {
-            font-size: 1.3rem;
+
+        .aca-hero-content h1 {
+            font-size: 3.5rem;
             margin-bottom: 25px;
-            text-shadow: 1px 1px 3px rgba(0, 0, 0, 0.5);
-            animation: fadeInUp 1s ease-out 0.2s both;
+            font-family: 'Playfair Display', serif;
+            text-shadow: 2px 2px 8px rgba(0, 0, 0, 0.3);
+            line-height: 1.2;
+            animation: titleSlideIn 1s ease-out 0.3s both;
         }
-        
+
+        .aca-hero-highlight {
+            color: #FFD700;
+            background: linear-gradient(135deg, #FFD700, #FFA500);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
+        }
+
+        .aca-hero-content .lead-text {
+            font-size: 1.4rem;
+            margin-bottom: 30px;
+            max-width: 700px;
+            margin-left: auto;
+            margin-right: auto;
+            line-height: 1.6;
+            text-shadow: 1px 1px 4px rgba(0, 0, 0, 0.5);
+            animation: fadeInUp 0.8s ease-out 0.6s both;
+        }
+
+        .aca-hero-stats {
+            display: flex;
+            justify-content: center;
+            gap: 40px;
+            margin: 40px 0;
+            animation: fadeInUp 0.8s ease-out 0.8s both;
+        }
+
+        .aca-stat {
+            text-align: center;
+        }
+
+        .aca-stat-number {
+            display: block;
+            font-size: 2.5rem;
+            font-weight: 700;
+            color: #FFD700;
+            margin-bottom: 5px;
+            font-family: 'Playfair Display', serif;
+        }
+
+        .aca-stat-label {
+            font-size: 0.9rem;
+            opacity: 0.9;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+
         .aca-tagline {
             font-style: italic;
-            font-size: 1.2rem;
+            font-size: 1.3rem;
             color: #f0f0f0;
-            border-top: 1px solid rgba(255, 255, 255, 0.3);
-            padding-top: 20px;
-            margin-top: 20px;
+            border-top: 2px solid rgba(255, 255, 255, 0.2);
+            padding-top: 25px;
+            margin-top: 30px;
             max-width: 600px;
             margin-left: auto;
             margin-right: auto;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        
-        .aca-logo-img {
-            width: 60px;
-            height: 60px;
-            border-radius: 12px;
-            background: linear-gradient(135deg, #3C3B6E 0%, #2A2A5E 100%);
-            display: flex;
-            align-items: center;
-            justify-content: center;
-            color: white;
-            font-weight: bold;
-            font-size: 20px;
-            margin-right: 15px;
-            border: 2px solid #B22234;
-            object-fit: cover;
-        }
-        
-        .aca-university-logo {
-            height: 50px;
-            margin-left: 20px;
-            border-radius: 12px;
-            border: 2px solid #3C3B6E;
-            object-fit: cover;
-        }
-        
-        /* Categories Section with animations */
-        .aca-categories {
-            padding: 70px 0;
-            background-color: #fff;
-        }
-        
-        .aca-section-title {
-            text-align: center;
-            font-size: 2.2rem;
-            margin-bottom: 50px;
-            color: #3C3B6E;
             position: relative;
-            padding-bottom: 15px;
-            font-family: 'Playfair Display', serif;
-            animation: fadeInUp 1s ease-out;
+            animation: fadeInUp 0.8s ease-out 1s both;
         }
-        
-        .aca-section-title:after {
+
+        .aca-tagline::before {
+            content: '"';
+            font-size: 4rem;
+            color: rgba(255, 255, 255, 0.1);
+            position: absolute;
+            top: -10px;
+            left: -30px;
+            font-family: serif;
+        }
+
+        .aca-hero-cta {
+            margin-top: 40px;
+            animation: fadeInUp 0.8s ease-out 1.2s both;
+        }
+
+        .aca-btn-hero {
+            display: inline-flex;
+            align-items: center;
+            gap: 10px;
+            background: linear-gradient(135deg, #B22234, #9e1c2d);
+            color: white;
+            padding: 15px 35px;
+            text-decoration: none;
+            border-radius: 50px;
+            font-weight: 600;
+            font-size: 1.1rem;
+            transition: all 0.3s ease;
+            box-shadow: 0 5px 20px rgba(178, 34, 52, 0.4);
+        }
+
+        .aca-btn-hero:hover {
+            transform: translateY(-3px);
+            box-shadow: 0 8px 30px rgba(178, 34, 52, 0.6);
+            background: linear-gradient(135deg, #9e1c2d, #B22234);
+        }
+
+        .aca-btn-secondary {
+            background: transparent;
+            border: 2px solid rgba(255, 255, 255, 0.3);
+            margin-left: 15px;
+        }
+
+        .aca-btn-secondary:hover {
+            background: rgba(255, 255, 255, 0.1);
+            border-color: rgba(255, 255, 255, 0.5);
+        }
+
+        /* Welcome Message Section */
+        #welcome-message {
+            text-align: center;
+            padding: 80px 0;
+            background: linear-gradient(135deg, #f8f9fa 0%, #e9ecef 100%);
+            position: relative;
+        }
+
+        #welcome-message::before {
             content: '';
             position: absolute;
-            bottom: 0;
-            left: 50%;
-            transform: translateX(-50%);
-            width: 80px;
+            top: 0;
+            left: 0;
+            right: 0;
             height: 4px;
-            background: linear-gradient(to right, #3C3B6E, #B22234);
-            border-radius: 2px;
+            background: linear-gradient(to right, #3C3B6E, #B22234, #3C3B6E);
         }
-        
-        .aca-categories-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
-            gap: 30px;
-            margin-top: 40px;
+
+        .welcome-container {
+            max-width: 900px;
+            margin: 0 auto;
+            padding: 0 20px;
         }
-        
-        .aca-category-card {
-            background: white;
-            border-radius: 10px;
-            overflow: hidden;
-            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.08);
-            transition: all 0.3s ease;
-            display: block;
-            text-decoration: none;
-            color: inherit;
-            animation: fadeInUp 1s ease-out;
-        }
-        
-        .aca-category-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .aca-card-image {
-            height: 200px;
-            overflow: hidden;
-            display: flex;
-            align-items: center;
-            justify-content: center;
-        }
-        
-        .aca-card-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-            transition: transform 0.5s ease;
-        }
-        
-        .aca-category-card:hover .aca-card-image img {
-            transform: scale(1.05);
-        }
-        
-        .aca-card-content {
-            padding: 25px;
-            position: relative;
-        }
-        
-        .aca-card-content h4 {
-            font-size: 1.5rem;
-            margin-bottom: 12px;
-            color: #3C3B6E;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .aca-card-content p {
-            color: #666;
-            margin-bottom: 20px;
-            line-height: 1.5;
-        }
-        
-        .aca-card-arrow {
-            color: #B22234;
-            font-weight: 600;
-            transition: all 0.3s ease;
-        }
-        
-        .aca-category-card:hover .aca-card-arrow {
-            transform: translateX(5px);
-        }
-        
-        /* About Section */
-        .aca-about {
-            padding: 70px 0;
-            background-color: #f5f7fa;
-        }
-        
-        .aca-about-content {
-            display: grid;
-            grid-template-columns: 1fr 1fr;
-            gap: 50px;
-            align-items: center;
-            animation: fadeInUp 1s ease-out 0.3s both;
-        }
-        
-        .aca-about-text h3 {
-            font-size: 2rem;
-            margin-bottom: 20px;
-            color: #3C3B6E;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .aca-about-text p {
-            margin-bottom: 20px;
-            line-height: 1.6;
-            color: #555;
-        }
-        
-        .aca-btn {
+
+        .welcome-badge {
             display: inline-block;
-            background: #B22234;
+            background: #3C3B6E;
             color: white;
-            padding: 12px 25px;
-            text-decoration: none;
-            border-radius: 30px;
-            font-weight: 500;
-            transition: all 0.3s ease;
-            margin-top: 15px;
+            padding: 6px 15px;
+            border-radius: 20px;
+            font-size: 0.8rem;
+            font-weight: 600;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+            margin-bottom: 20px;
         }
-        
-        .aca-btn:hover {
-            background: #9e1c2d;
-            transform: translateY(-3px);
-            box-shadow: 0 5px 15px rgba(178, 34, 52, 0.3);
-        }
-        
-        .aca-about-image {
-            height: 350px;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
-        }
-        
-        .aca-about-image img {
-            width: 100%;
-            height: 100%;
-            object-fit: cover;
-        }
-        
-        /* Team Section */
-        .aca-team-section {
-            background-color: #f5f7fa;
-            padding: 80px 0;
-        }
-        
-        .aca-team-grid {
-            display: grid;
-            grid-template-columns: repeat(4, 1fr);
-            gap: 25px;
-            margin-top: 40px;
-        }
-        
-        .aca-team-card {
-            background: white;
-            border-radius: 12px;
-            overflow: hidden;
-            box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease;
-            text-align: center;
-            text-decoration: none;
-            color: inherit;
-            display: block;
-            animation: fadeInUp 1s ease-out 0.4s both;
-        }
-        
-        .aca-team-card:hover {
-            transform: translateY(-10px);
-            box-shadow: 0 15px 30px rgba(0, 0, 0, 0.15);
-        }
-        
-        .aca-team-image {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            object-fit: cover;
-            border: 3px solid #3C3B6E;
-            margin: 25px auto 15px;
-            display: block;
-            transition: all 0.3s ease;
-        }
-        
-        .aca-team-card:hover .aca-team-image {
-            transform: scale(1.1);
-            border-color: #B22234;
-        }
-        
-        .aca-team-content {
-            padding: 0 20px 25px;
-        }
-        
-        .aca-team-content h4 {
-            font-size: 1.3rem;
-            margin-bottom: 8px;
+
+        .welcome-title {
+            font-size: 2.8rem;
+            margin-bottom: 25px;
             color: #3C3B6E;
             font-family: 'Playfair Display', serif;
+            line-height: 1.2;
         }
-        
-        .aca-team-role {
-            color: #B22234;
-            font-weight: 600;
-            margin-bottom: 12px;
-            font-size: 0.9rem;
+
+        .welcome-title span {
+            background: linear-gradient(135deg, #3C3B6E, #B22234);
+            -webkit-background-clip: text;
+            -webkit-text-fill-color: transparent;
+            background-clip: text;
         }
-        
-        .aca-team-content p {
-            color: #666;
-            margin-bottom: 15px;
-            line-height: 1.5;
-            font-size: 0.9rem;
+
+        .welcome-text {
+            font-size: 1.3rem;
+            line-height: 1.7;
+            color: #555;
+            margin-bottom: 30px;
         }
-        
-        .aca-team-email {
-            color: #666;
-            font-size: 0.85rem;
-            margin-top: 15px;
-            word-break: break-word;
-        }
-        
-        /* Footer */
-        .aca-footer {
-            background: linear-gradient(135deg, #1a2a6c, #3C3B6E);
-            color: white;
-            padding: 60px 0 20px;
-        }
-        
-        .aca-footer-content {
+
+        .welcome-features {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-            gap: 40px;
-            margin-bottom: 40px;
+            gap: 30px;
+            margin-top: 50px;
         }
-        
-        .aca-footer-section h3 {
-            font-size: 1.4rem;
-            margin-bottom: 20px;
-            position: relative;
-            padding-bottom: 10px;
-            font-family: 'Playfair Display', serif;
-        }
-        
-        .aca-footer-section h3:after {
-            content: '';
-            position: absolute;
-            bottom: 0;
-            left: 0;
-            width: 50px;
-            height: 3px;
-            background: #B22234;
-            border-radius: 2px;
-        }
-        
-        .aca-footer-section p {
-            line-height: 1.6;
-            margin-bottom: 20px;
-            color: #e0e0e0;
-        }
-        
-        .aca-team-members {
-            display: grid;
-            grid-template-columns: repeat(2, 1fr);
-            gap: 10px;
-        }
-        
-        .aca-team-member {
-            background: rgba(255, 255, 255, 0.1);
-            padding: 12px 15px;
-            border-radius: 5px;
+
+        .welcome-feature {
             text-align: center;
-            transition: all 0.3s ease;
-            color: white;
-            text-decoration: none;
+            padding: 30px 20px;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 5px 20px rgba(0, 0, 0, 0.08);
+            transition: transform 0.3s ease;
         }
-        
-        .aca-team-member:hover {
-            background: rgba(255, 255, 255, 0.2);
-            transform: translateY(-3px);
+
+        .welcome-feature:hover {
+            transform: translateY(-5px);
         }
-        
-        .aca-footer-links {
-            list-style: none;
-        }
-        
-        .aca-footer-links li {
-            margin-bottom: 12px;
-        }
-        
-        .aca-footer-links li a {
-            color: #e0e0e0;
-            text-decoration: none;
+
+        .feature-icon {
+            width: 70px;
+            height: 70px;
+            background: linear-gradient(135deg, #3C3B6E, #2A2A5E);
+            border-radius: 50%;
             display: flex;
             align-items: center;
-            transition: all 0.3s ease;
+            justify-content: center;
+            margin: 0 auto 20px;
+            color: white;
+            font-size: 28px;
         }
-        
-        .aca-footer-links li a i {
-            margin-right: 10px;
-            color: #B22234;
-            font-size: 0.9rem;
+
+        .feature-title {
+            font-size: 1.3rem;
+            margin-bottom: 15px;
+            color: #3C3B6E;
+            font-family: 'Playfair Display', serif;
         }
-        
-        .aca-footer-links li a:hover {
-            color: #ffffff;
-            transform: translateX(5px);
+
+        .feature-desc {
+            color: #666;
+            line-height: 1.5;
         }
-        
-        .aca-footer-bottom {
-            text-align: center;
-            padding-top: 30px;
-            margin-top: 40px;
-            border-top: 1px solid rgba(255, 255, 255, 0.1);
-            font-size: 0.9rem;
-            color: #aaa;
-        }
-        
+
         /* Animations */
+        @keyframes heroContentAppear {
+            from {
+                opacity: 0;
+                transform: scale(0.9);
+            }
+            to {
+                opacity: 1;
+                transform: scale(1);
+            }
+        }
+
+        @keyframes titleSlideIn {
+            from {
+                opacity: 0;
+                transform: translateY(50px);
+            }
+            to {
+                opacity: 1;
+                transform: translateY(0);
+            }
+        }
+
         @keyframes fadeInUp {
             from {
                 opacity: 0;
@@ -434,92 +313,71 @@
                 transform: translateY(0);
             }
         }
-        
-        /* Responsive adjustments */
-        @media (max-width: 1200px) {
-            .aca-team-grid {
-                grid-template-columns: repeat(2, 1fr);
-                gap: 25px;
+
+        @keyframes badgePulse {
+            0%, 100% {
+                transform: scale(1);
+            }
+            50% {
+                transform: scale(1.05);
             }
         }
-        
-        @media (max-width: 992px) {
-            .aca-about-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .aca-about-image {
-                order: -1;
-                height: 250px;
-            }
-        }
-        
+
+        /* Responsive Design */
         @media (max-width: 768px) {
-            .aca-header-content {
-                flex-direction: column;
-                text-align: center;
-                gap: 15px;
+            .aca-hero-content h1 {
+                font-size: 2.5rem;
             }
             
-            .aca-nav ul {
-                margin-top: 20px;
-                flex-wrap: wrap;
-                justify-content: center;
+            .aca-hero-content .lead-text {
+                font-size: 1.2rem;
             }
             
-            .aca-nav ul li {
-                margin: 5px 10px;
+            .aca-hero-stats {
+                gap: 20px;
             }
             
-            .aca-university-logo {
-                margin-left: 0;
-                margin-top: 15px;
+            .aca-stat-number {
+                font-size: 2rem;
             }
             
-            .aca-hero-content h2 {
+            .welcome-title {
                 font-size: 2.2rem;
             }
             
-            .aca-hero-content p {
+            .welcome-text {
                 font-size: 1.1rem;
             }
             
-            .aca-categories-grid {
+            .aca-hero-cta {
+                display: flex;
+                flex-direction: column;
+                gap: 15px;
+            }
+            
+            .aca-btn-secondary {
+                margin-left: 0;
+            }
+        }
+
+        @media (max-width: 480px) {
+            .aca-hero-stats {
+                flex-direction: column;
+                gap: 20px;
+            }
+            
+            .welcome-features {
                 grid-template-columns: 1fr;
-            }
-            
-            .aca-team-grid {
-                grid-template-columns: 1fr;
-            }
-            
-            .aca-footer-content {
-                grid-template-columns: 1fr;
-                gap: 30px;
-            }
-            
-            .aca-team-members {
-                grid-template-columns: repeat(2, 1fr);
-            }
-            
-            .aca-footer-section {
-                text-align: center;
-            }
-            
-            .aca-footer-section h3:after {
-                left: 50%;
-                transform: translateX(-50%);
             }
         }
     </style>
 </head>
 <body>
-    <!-- Header -->
     <header class="aca-header">
         <div class="aca-container">
             <div class="aca-header-content">
                 <div class="aca-logo" style="display: flex; align-items: center;">
-                    <img class="aca-logo-img" src="logoACA.webp" alt="ACA Logo">
+                    <img class="aca-logo-img" src="logoACA.webp" alt="ACA Logo" style="width: 60px; height: 60px; border-radius: 12px; margin-right: 15px; object-fit: cover;">
                     <div>
                         <h1 style="margin: 0; font-size: 24px;">American Cultural</h1>
                         <p style="margin: 0; font-size: 14px; opacity: 0.8;">Association</p>
@@ -535,166 +393,308 @@
                         <li><a href="landmarks.html">Landmarks</a></li>
                         <li><a href="holidays.html">Holidays</a></li>
                         <li><a href="contact.html">Contact</a></li>
+                        <li><a href="gallery.html">Gallery</a></li>
                     </ul>
                 </nav>
-                <img src="logoAITU.jpg" alt="University Logo" class="aca-university-logo">
+                <img src="logoAITU.jpg" alt="University Logo" class="aca-university-logo" style="height: 50px; margin-left: 20px; border-radius: 12px; border: 2px solid #3C3B6E; object-fit: cover;">
             </div>
         </div>
     </header>
 
-    <!-- Hero Section -->
     <section class="aca-hero">
         <div class="aca-container">
             <div class="aca-hero-content">
-                <h2>Welcome to the American Cultural Association</h2>
-                <p>Discover the rich tapestry of American culture through its cuisine, music, cinema, sports, landmarks, and traditions.</p>
-                <div class="aca-tagline">Celebrating the Rich Tapestry of American Heritage</div>
-            </div>
-        </div>
-    </section>
-
-    <!-- Categories Section -->
-    <section class="aca-categories">
-        <div class="aca-container">
-            <h3 class="aca-section-title">Explore American Culture</h3>
-            <div class="aca-categories-grid">
-                <a href="cuisine.html" class="aca-category-card">
-                    <div class="aca-card-image">
-                        <img src="Cuisine Image.webp" alt="Cuisine Image">
-                    </div>
-                    <div class="aca-card-content">
-                        <h4>American Cuisine</h4>
-                        <p>From classic burgers to regional specialties—discover the diverse flavors of America.</p>
-                        <span class="aca-card-arrow">Explore →</span>
-                    </div>
-                </a>
-                
-                <a href="music.html" class="aca-category-card">
-                    <div class="aca-card-image">
-                        <img src="Music.webp" alt="Music Image">
-                    </div>
-                    <div class="aca-card-content">
-                        <h4>American Music</h4>
-                        <p>From jazz and blues to country and hip-hop—experience America's musical legacy.</p>
-                        <span class="aca-card-arrow">Explore →</span>
-                    </div>
-                </a>
-                
-                <a href="movies.html" class="aca-category-card">
-                    <div class="aca-card-image">
-                        <img src="Hollywood-sign.jpg" alt="Movies Image">
-                    </div>
-                    <div class="aca-card-content">
-                        <h4>American Cinema</h4>
-                        <p>Hollywood and beyond—explore the films and directors that shaped global cinema.</p>
-                        <span class="aca-card-arrow">Explore →</span>
-                    </div>
-                </a>
-                
-                <a href="sports.html" class="aca-category-card">
-                    <div class="aca-card-image">
-                        <img src="Sport.webp" alt="Sports Image">
-                    </div>
-                    <div class="aca-card-content">
-                        <h4>American Sports</h4>
-                        <p>From baseball to basketball—discover America's passion for sports and competition.</p>
-                        <span class="aca-card-arrow">Explore →</span>
-                    </div>
-                </a>
-                
-                <a href="landmarks.html" class="aca-category-card">
-                    <div class="aca-card-image">
-                        <img src="grand-canyon.jpg" alt="Landmarks Image">
-                    </div>
-                    <div class="aca-card-content">
-                        <h4>American Landmarks</h4>
-                        <p>Iconic monuments and natural wonders—explore America's most famous landmarks.</p>
-                        <span class="aca-card-arrow">Explore →</span>
-                    </div>
-                </a>
-                
-                <a href="holidays.html" class="aca-category-card">
-                    <div class="aca-card-image">
-                        <img src="Holidays.webp" alt="Holidays Image">
-                    </div>
-                    <div class="aca-card-content">
-                        <h4>American Holidays</h4>
-                        <p>National celebrations and traditions—discover how America marks special occasions.</p>
-                        <span class="aca-card-arrow">Explore →</span>
-                    </div>
-                </a>
-            </div>
-        </div>
-    </section>
-
-    <!-- About Section -->
-    <section class="aca-about">
-        <div class="aca-container">
-            <div class="aca-about-content">
-                <div class="aca-about-text">
-                    <h3>About American Cultural Association</h3>
-                    <p>The American Cultural Association is dedicated to exploring and sharing the diverse cultural heritage of the United States. From the bustling cities to the quiet countryside, American culture reflects both unity and diversity.</p>
-                    <p>Our mission is to educate people worldwide about American traditions, values, and way of life through various cultural aspects including cuisine, music, cinema, sports, landmarks, and holidays.</p>
-                    <a href="#" class="aca-btn">Learn More About Us</a>
+                <div class="aca-hero-badge">
+                    <i class="fas fa-star"></i> Est. 2025
                 </div>
-                <div class="aca-about-image">
-                    <img src="white-house.jpg" alt="About Us Image">
+                
+                <h1>
+                    Welcome to the 
+                    <span class="aca-hero-highlight">American Cultural</span><br>
+                    Association
+                </h1>
+                
+                <p class="lead-text">
+                    Discover the rich tapestry of American culture through its diverse cuisine, 
+                    legendary music, groundbreaking cinema, passionate sports, iconic landmarks, 
+                    and cherished traditions.
+                </p>
+
+                <div class="aca-hero-stats">
+                    <div class="aca-stat">
+                        <span class="aca-stat-number">6</span>
+                        <span class="aca-stat-label">Cultural Categories</span>
+                    </div>
+                    <div class="aca-stat">
+                        <span class="aca-stat-number">50+</span>
+                        <span class="aca-stat-label">Cultural Insights</span>
+                    </div>
+                    <div class="aca-stat">
+                        <span class="aca-stat-number">100+</span>
+                        <span class="aca-stat-label">Years of History</span>
+                    </div>
+                </div>
+
+                <div class="aca-tagline">
+                    Celebrating the Rich Tapestry of American Heritage and Innovation
+                </div>
+
+                <div class="aca-hero-cta">
+                    <a href="#explore" class="aca-btn-hero">
+                        <i class="fas fa-compass"></i>
+                        Start Exploring
+                    </a>
+                    <a href="#about" class="aca-btn-hero aca-btn-secondary">
+                        <i class="fas fa-play-circle"></i>
+                        Watch Introduction
+                    </a>
                 </div>
             </div>
         </div>
     </section>
 
-    <!-- Team Section -->
-    <section class="aca-team-section">
-        <div class="aca-container">
-            <h3 class="aca-section-title">La Crimson Mafia Team:</h3>
-            <div class="aca-team-grid">
-                <a href="contact.html#ilyas" class="aca-team-card">
-                    <img src="iliyas.jpg" alt="Iliyas Aitzhan" class="aca-team-image">
-                    <div class="aca-team-content">
-                        <h4>Iliyas Aitzhan</h4>
-                        <div class="aca-team-role">Project Lead & 3,4 page dev</div>
-                        <p>Responsible for music and movie pages.</p>
+    <section id="welcome-message">
+        <div class="welcome-container">
+            <div class="welcome-badge">
+                <i class="fas fa-heart"></i> Our Mission
+            </div>
+            
+            <h2 class="welcome-title">
+                Discover the <span>Heart & Soul</span> of American Culture
+            </h2>
+            
+            <p class="welcome-text">
+                Join us on an extraordinary journey through the diverse landscapes of American traditions, 
+                values, and innovations that have shaped the nation's unique identity. From the bustling 
+                cities to the quiet countryside, experience the stories that define America.
+            </p>
+
+            <div class="welcome-features">
+                <div class="welcome-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-university"></i>
                     </div>
-                </a>
+                    <h3 class="feature-title">Rich Heritage</h3>
+                    <p class="feature-desc">Explore centuries of cultural evolution and historical significance</p>
+                </div>
                 
-                <a href="contact.html#yerkebulan" class="aca-team-card">
-                    <img src="Erkosh.jpg" alt="Yerkebulan Rakhymbay" class="aca-team-image">
-                    <div class="aca-team-content">
-                        <h4>Yerkebulan Rakhymbay</h4>
-                        <div class="aca-team-role">Developer of 1,2 pg</div>
-                        <p>Focused on cuisine and homepage pages.</p>
+                <div class="welcome-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-users"></i>
                     </div>
-                </a>
+                    <h3 class="feature-title">Diverse Community</h3>
+                    <p class="feature-desc">Learn about the melting pot of cultures that shaped America</p>
+                </div>
                 
-                <a href="contact.html#radmir" class="aca-team-card">
-                    <img src="Radik.jpg" alt="Radmir Toizhanov" class="aca-team-image">
-                    <div class="aca-team-content">
-                        <h4>Radmir Toizhanov</h4>
-                        <div class="aca-team-role">Developer of 5,7 pg</div>
-                        <p>Handled sports and holidays pages.</p>
+                <div class="welcome-feature">
+                    <div class="feature-icon">
+                        <i class="fas fa-lightbulb"></i>
                     </div>
-                </a>
-                
-                <a href="contact.html#ramazan" class="aca-team-card">
-                    <img src="Roma.jpg" alt="Ramazan Nagimov" class="aca-team-image">
-                    <div class="aca-team-content">
-                        <h4>Ramazan Nagimov</h4>
-                        <div class="aca-team-role">Developer of 6,8 pg</div>
-                        <p>Responsible for landmarks and contact pages.</p>
-                    </div>
-                </a>
+                    <h3 class="feature-title">Modern Innovation</h3>
+                    <p class="feature-desc">Discover how tradition meets innovation in American culture</p>
+                </div>
             </div>
         </div>
     </section>
 
-    <!-- Footer -->
-    <footer class="aca-footer">
+    <main id="main-content">
+        <section id="featured-categories" class="aca-categories">
+            <div class="aca-container">
+                <h3 class="aca-section-title">Explore American Culture</h3>
+                <div class="aca-categories-grid">
+                    <a href="cuisine.html" class="aca-category-card">
+                        <div class="aca-card-image">
+                            <img src="Cuisine Image.webp" alt="Cuisine Image">
+                        </div>
+                        <div class="aca-card-content">
+                            <h4>American Cuisine</h4>
+                            <p>From classic burgers to regional specialties—discover the diverse flavors of America.</p>
+                            <span class="aca-card-arrow">Explore →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="music.html" class="aca-category-card">
+                        <div class="aca-card-image">
+                            <img src="Music.webp" alt="Music Image">
+                        </div>
+                        <div class="aca-card-content">
+                            <h4>American Music</h4>
+                            <p>From jazz and blues to country and hip-hop—experience America's musical legacy.</p>
+                            <span class="aca-card-arrow">Explore →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="movies.html" class="aca-category-card">
+                        <div class="aca-card-image">
+                            <img src="Hollywood-sign.jpg" alt="Movies Image">
+                        </div>
+                        <div class="aca-card-content">
+                            <h4>American Cinema</h4>
+                            <p>Hollywood and beyond—explore the films and directors that shaped global cinema.</p>
+                            <span class="aca-card-arrow">Explore →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="sports.html" class="aca-category-card">
+                        <div class="aca-card-image">
+                            <img src="Sport.webp" alt="Sports Image">
+                        </div>
+                        <div class="aca-card-content">
+                            <h4>American Sports</h4>
+                            <p>From baseball to basketball—discover America's passion for sports and competition.</p>
+                            <span class="aca-card-arrow">Explore →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="landmarks.html" class="aca-category-card">
+                        <div class="aca-card-image">
+                            <img src="grand-canyon.jpg" alt="Landmarks Image">
+                        </div>
+                        <div class="aca-card-content">
+                            <h4>American Landmarks</h4>
+                            <p>Iconic monuments and natural wonders—explore America's most famous landmarks.</p>
+                            <span class="aca-card-arrow">Explore →</span>
+                        </div>
+                    </a>
+                    
+                    <a href="holidays.html" class="aca-category-card">
+                        <div class="aca-card-image">
+                            <img src="Holidays.webp" alt="Holidays Image">
+                        </div>
+                        <div class="aca-card-content">
+                            <h4>American Holidays</h4>
+                            <p>National celebrations and traditions—discover how America marks special occasions.</p>
+                            <span class="aca-card-arrow">Explore →</span>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+
+        <section id="cultural-highlights" class="aca-about">
+            <div class="aca-container">
+                <h3>Cultural Highlights</h3>
+                <div class="aca-about-content">
+                    <div class="aca-about-text">
+                        <h4>Why American Culture Matters</h4>
+                        <p>American culture represents a unique blend of traditions from around the world, creating a dynamic and ever-evolving tapestry of art, food, music, and ideas.</p>
+                        <p>From the Native American heritage to the influences of immigrants from every corner of the globe, the United States has developed a culture that both honors tradition and embraces innovation.</p>
+                        <a href="#" class="aca-btn">Explore Our Mission</a>
+                    </div>
+                    <div class="aca-about-image">
+                        <img src="white-house.jpg" alt="American Cultural Blend">
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="aca-gallery">
+            <div class="aca-container">
+                <h3 class="aca-section-title">American Culture Gallery</h3>
+                <p style="text-align: center; color: #666; margin-bottom: 40px;">Explore our collection of iconic American images</p>
+                <div class="aca-gallery-grid">
+                    <div class="aca-gallery-item">
+                        <img src="Cuisine Image.webp" alt="American Cuisine">
+                        <div class="aca-gallery-caption">American Cuisine</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="Music.webp" alt="American Music">
+                        <div class="aca-gallery-caption">American Music</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="Hollywood-sign.jpg" alt="American Cinema">
+                        <div class="aca-gallery-caption">American Cinema</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="Sport.webp" alt="American Sports">
+                        <div class="aca-gallery-caption">American Sports</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="grand-canyon.jpg" alt="American Landmarks">
+                        <div class="aca-gallery-caption">American Landmarks</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="Holidays.webp" alt="American Holidays">
+                        <div class="aca-gallery-caption">American Holidays</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="maxresdefault.jpg" alt="American History">
+                        <div class="aca-gallery-caption">American History</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="grupo-do-americano.webp" alt="American Symbols">
+                        <div class="aca-gallery-caption">American Symbols</div>
+                    </div>
+                    <div class="aca-gallery-item">
+                        <img src="i.webp" alt="American Landscape">
+                        <div class="aca-gallery-caption">American Landscape</div>
+                    </div>
+                </div>
+                <div style="text-align: center; margin-top: 40px;">
+                    <a href="gallery.html" class="aca-btn">View Full Gallery</a>
+                </div>
+            </div>
+        </section>
+
+        <section class="aca-team-section">
+            <div class="aca-container">
+                <h3 class="aca-section-title">La Crimson Mafia Team:</h3>
+                <div class="aca-team-grid">
+                    <a href="contact.html#ilyas" class="aca-team-card">
+                        <img src="iliyas.jpg" alt="Iliyas" class="aca-team-image">
+                        <div class="aca-team-content">
+                            <h4>Iliyas</h4>
+                            <div class="aca-team-role">Project Lead & 3,4 page dev</div>
+                            <p>Responsible for music and movie pages.</p>
+                            <div class="aca-team-email">241705@astanait.edu.kz</div>
+                        </div>
+                    </a>
+                    
+                    <a href="contact.html#yerkebulan" class="aca-team-card">
+                        <img src="Erkosh.jpg" alt="Yerkebulan Rakhymbay" class="aca-team-image">
+                        <div class="aca-team-content">
+                            <h4>Yerkebulan Rakhymbay</h4>
+                            <div class="aca-team-role">Developer of 1,2 pg</div>
+                            <p>Focused on cuisine and homepage pages.</p>
+                            <div class="aca-team-email">240065@astanait.edu.kz</div>
+                        </div>
+                    </a>
+                    
+                    <a href="contact.html#radmir" class="aca-team-card">
+                        <img src="Radik.jpg" alt="Radmir Toizhanov" class="aca-team-image">
+                        <div class="aca-team-content">
+                            <h4>Radmir Toizhanov</h4>
+                            <div class="aca-team-role">Developer of 5,7 pg</div>
+                            <p>Handled sports and holidays pages.</p>
+                            <div class="aca-team-email">241561@astanait.edu.kz</div>
+                        </div>
+                    </a>
+                    
+                    <a href="contact.html#ramazan" class="aca-team-card">
+                        <img src="Roma.jpg" alt="Ramazan Nagimov" class="aca-team-image">
+                        <div class="aca-team-content">
+                            <h4>Ramazan Nagimov</h4>
+                            <div class="aca-team-role">Developer of 6,8 pg</div>
+                            <p>Responsible for landmarks and contact pages.</p>
+                            <div class="aca-team-email">242394@astanait.edu.kz</div>
+                        </div>
+                    </a>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer id="site-footer" class="aca-footer">
         <div class="aca-container">
             <div class="aca-footer-content">
                 <div class="aca-footer-section">
                     <h3>American Cultural Association</h3>
                     <p>Exploring the rich heritage and traditions of the United States. Our mission is to promote understanding and appreciation of American culture worldwide.</p>
+                    <div id="contact-info">
+                        <h4>Contact Information</h4>
+                        <p>Email: info@american-culture.org</p>
+                        <p>Phone: +1 (555) 123-4567</p>
+                    </div>
                 </div>
                 
                 <div class="aca-footer-section">
@@ -718,6 +718,7 @@
                         <li><a href="landmarks.html"><i class="fas fa-chevron-right"></i> Landmarks</a></li>
                         <li><a href="holidays.html"><i class="fas fa-chevron-right"></i> Holidays</a></li>
                         <li><a href="contact.html"><i class="fas fa-chevron-right"></i> Contact</a></li>
+                        <li><a href="gallery.html"><i class="fas fa-chevron-right"></i> Gallery</a></li>
                     </ul>
                 </div>
             </div>
@@ -728,6 +729,4 @@
         </div>
     </footer>
 </body>
-
 </html>
-
